@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!DOCTYPE configuration PUBLIC "-//mybatis.org//DTD Config 3.0//EN" "http://mybatis.org/dtd/mybatis-3-config.dtd">
+
+<configuration>
+
+    <!--加载properties文件-->
+    <properties resource="jdbc.properties"></properties>
+
+    <!--定义别名-->
+    <typeAliases>
+        <!--方式一：单独定义-->
+        <!--<typeAlias type="com.example.domain.Account" alias="account"></typeAlias>-->
+        <!--方式二：扫描整个包，Mybatis会给包内的每一个类定义别名，别名就是类名或者类名首字母小写-->
+        <package name="com.example.domain"></package>
+    </typeAliases>
+
+    <!--配置环境-->
+    <environments default="development">
+        <environment id="development">
+            <transactionManager type="JDBC"></transactionManager>
+            <dataSource type="POOLED">
+                <property name="driver" value="${jdbc.driver}"/>
+                <property name="url" value="${jdbc.url}"/>
+                <property name="username" value="${jdbc.username}"/>
+                <property name="password" value="${jdbc.password}"/>
+            </dataSource>
+        </environment>
+    </environments>
+
+    <!--加载映射-->
+    <mappers>
+        <!--方式一：指定特定的映射文件-->
+        <!--<mapper resource="com/example/mapper/AccountMapper.xml"></mapper>-->
+        <!--方式二：扫描指定的包-->
+        <package name="com/example/mapper"/>
+    </mappers>
+</configuration>

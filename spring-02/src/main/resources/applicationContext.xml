@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+                           http://www.springframework.org/schema/context  http://www.springframework.org/schema/context/spring-context.xsd">
+
+    <!-- 加载外部的properties文件，注意需要首先要在上面引入相应的namespace -->
+    <context:property-placeholder location="classpath:jdbc.properties"/>
+
+    <!-- 配置dataSource：普通方式 -->
+<!--    <bean id="dataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource">-->
+<!--        <property name="driverClass" value="com.mysql.jdbc.Driver"/>-->
+<!--        <property name="jdbcUrl" value="jdbc:mysql://localhost:3306/db2019?useSSL=false"/>-->
+<!--        <property name="user" value="root"/>-->
+<!--        <property name="password" value="root"/>-->
+<!--    </bean>-->
+
+    <!-- 配置dataSource：引入外部的properties文件 -->
+    <bean id="dataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource">
+        <property name="driverClass" value="${jdbc.driver}"/>
+        <property name="jdbcUrl" value="${jdbc.url}"/>
+        <property name="user" value="${jdbc.username}"/>
+        <property name="password" value="${jdbc.password}"/>
+    </bean>
+
+    <!-- 配置bean：普通方式 -->
+<!--    <bean id="userDao" class="com.example.dao.impl.UserDaoImpl"></bean>-->
+<!--    <bean id="userService" class="com.example.service.impl.UserServiceImpl">-->
+<!--        &lt;!&ndash; 进行依赖注入，注意这里是引用数据类型 &ndash;&gt;-->
+<!--        <property name="userDao" ref="userDao"></property>-->
+<!--    </bean>-->
+
+    <!-- 配置bean：通过组件扫描 -->
+<!--    <context:component-scan base-package="com.example"/>-->
+
+    <!-- 导入其他的配置文件 -->
+<!--    <import resource=""></import>-->
+
+</beans>
