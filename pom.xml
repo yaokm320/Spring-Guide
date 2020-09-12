@@ -15,8 +15,9 @@
         <module>spring-04</module>
         <module>spring-05</module>
         <module>spring-08</module>
-        <module>ssmweb</module>
         <module>spring-ssm</module>
+        <module>spring-ssm-2</module>
+        <module>spring-ssm-maven</module>
     </modules>
 
 <!--    <dependencies>-->
