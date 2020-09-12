@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!DOCTYPE configuration PUBLIC "-//mybatis.org//DTD Config 3.0//EN" "http://mybatis.org/dtd/mybatis-3-config.dtd">
+
+<configuration>
+
+    <!--定义别名-->
+    <typeAliases>
+        <!--方式一：单独定义-->
+        <!--<typeAlias type="com.example.domain.Account" alias="account"></typeAlias>-->
+        <!--方式二：扫描整个包，Mybatis会给包内的每一个类定义别名，别名就是类名或者类名首字母小写-->
+        <package name="com.example.domain"></package>
+    </typeAliases>
+
+</configuration>
