@@ -19,5 +19,3 @@ public class AnnoTest {
         target.save();
     }
 }
-
-
